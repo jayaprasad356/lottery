@@ -103,11 +103,11 @@ $fn = new custom_functions;
             <a href="home.php" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">
-                    <h2>Autobot</h2>
+                    <h2>Singapore Lottery</h2>
                 </span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
-                    <h3>Autobot</h3>
+                    <h3>Lottery</h3>
                 </span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -133,9 +133,9 @@ $fn = new custom_functions;
                                         </p>
                                     </li>
                                     <li class="user-footer">
-                                        <!-- <div class="pull-left">
+                                        <div class="pull-left">
                                             <a href="admin-profile.php" class="btn btn-default btn-flat"> Edit Profile</a>
-                                        </div> -->
+                                        </div>
                                         <div class="pull-right">
                                             <a href="logout.php" class="btn btn-default btn-flat">Log out</a>
                                         </div>
@@ -153,66 +153,88 @@ $fn = new custom_functions;
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
             <ul class="sidebar-menu">
-                <li class="treeview">
+            <li class="treeview">
                     <a href="home.php">
                         <i class="fa fa-home" class="active"></i> <span>Home</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="users.php">
-                        <i class="fa fa-bullseye"></i>
-                        <span>Users</span>
+                    <a href="index.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="categories.php">
-                        <i class="fa fa-bullseye"></i>
-                        <span>Categories</span>
+                    <a href="company.php">
+                        <i class="fa fa-flag"></i>
+                        <span>Logo</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="products.php">
-                        <i class="fa fa-cube"></i>
-                        <span>Products</span>
+                    <a href="#">
+                        <i class="fa fa-heart"></i>
+                        <span>Result</span>
+                        <i class="fa fa-angle-down pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="add-draw_result.php"><i class="fa fa-plus"></i> Add Result</a></li>
+                        <li><a href="draw_results.php"><i class="fa fa-sliders"></i>Manage Result</a></li>
+                        <li><a href="add-result_file.php"><i class="fa fa-plus"></i> Add Result File</a></li>
+                        <li><a href="resultfiles.php"><i class="fa fa-sliders"></i>Manage Result File</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-adn"></i>
+                        <span>Marquee</span>
+                        <i class="fa fa-angle-down pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="marque.php"><i class="fa fa-angle-right"></i>Home page Marque</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-play"></i>
+                        <span>Live Draw</span>
+                        <i class="fa fa-angle-down pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="add-livedraw.php"><i class="fa fa-angle-right"></i> Add Draw</a></li>
+                        <li><a href="livedraws.php"><i class="fa fa-angle-right"></i>Manage Draw</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="about_us.php">
+                        <i class="fa fa-info-circle"></i>
+                        <span>About Us</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="slides.php">
-                        <i class="fa fa-bullseye"></i>
-                        <span>Slides</span>
+                    <a href="modal.php">
+                        <i class="fa fa-flag"></i>
+                        <span>Modal Image</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="services.php">
-                        <i class="fa fa-wrench"></i>
-                        <span>Services</span>
+                    <a href="claim.php">
+                        <i class="fa fa-flag"></i>
+                        <span>Claim From Image</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="rentals.php">
-                        <i class="fa fa-bullseye"></i>
-                        <span>Rentals</span>
+                    <a href="scheme_image.php">
+                        <i class="fa fa-flag"></i>
+                        <span>Scheme Image</span>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="orders.php">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span>Orders</span>
+                    <a href="contact_us.php">
+                        <i class="fa fa-flag"></i>
+                        <span>Cotact Us</span>
                     </a>
                 </li>
-                <li class="treeview">
-                    <a href="notifications.php">
-                        <i class="fa fa-bullseye"></i>
-                        <span>Notifications</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="showrooms.php">
-                    <i class="fa fa-map"></i>
-                        <span>Showrooms</span>
-                    </a>
-                </li>
-              
+                
             </ul>
             </section>
             <!-- /.sidebar -->
