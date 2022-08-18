@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2022 at 08:27 PM
+-- Generation Time: Aug 19, 2022 at 01:07 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -49,6 +49,9 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `name` text DEFAULT NULL,
   `email` text DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `phone` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
   `password` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -56,8 +59,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
-(1, 'Dheena', 'admin@gmail.com', '123');
+INSERT INTO `admin` (`id`, `name`, `email`, `address`, `phone`, `image`, `password`) VALUES
+(1, 'Dheenax', 'admin@gmail.com', 'Trichy', '8765432', 'dist/img/1660862615.3279.jpg', '123');
 
 -- --------------------------------------------------------
 

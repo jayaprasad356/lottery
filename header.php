@@ -134,7 +134,7 @@ $fn = new custom_functions;
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="admin-profile.php" class="btn btn-default btn-flat"> Edit Profile</a>
+                                            <a href="view-profile.php" class="btn btn-default btn-flat"> Profile</a>
                                         </div>
                                         <div class="pull-right">
                                             <a href="logout.php" class="btn btn-default btn-flat">Log out</a>

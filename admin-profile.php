@@ -2,7 +2,7 @@
 include "header.php";?>
 <html>
 <head>
-<title>Singapore Lottary Admin</title>
+<title>Singapore Lottery Admin</title>
 <style>
     .asterik {
     font-size: 20px;
@@ -14,7 +14,7 @@ include "header.php";?>
 </body>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <?php include('public/edit-admin-form.php'); ?>
+        <?php include('public/edit-profile-form.php'); ?>
       </div><!-- /.content-wrapper -->
   </body>
 </html>
