@@ -119,13 +119,13 @@ if (isset($_POST['btnAdd'])) {
                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Draw Date</label><i class="text-danger asterik">*</i><?php echo isset($error['date']) ? $error['date'] : ''; ?>
-                                        <input type="date" class="form-control" name="date" required />
+                                        <input type="date" class="form-control" name="date" onchange="dateFunction(this.value)" required />
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Draw Day</label><i class="text-danger asterik">*</i><?php echo isset($error['day']) ? $error['day'] : ''; ?>
-                                        <input type="text" class="form-control" name="day" required />
+                                        <input type="text" class="form-control" name="day" id="drawday" required />
                                     </div>
                                 </div>
                             </div>  
@@ -241,5 +241,16 @@ if (isset($_POST['btnAdd'])) {
             x--;
         })
     });
+</script>
+<script>
+function dateFunction(val) {
+    const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const d = new Date(val);
+    let day = weekday[d.getDay()];
+    document.getElementById("drawday").value = day;
+
+
+}
+
 </script>
 <?php $db->disconnect(); ?>
