@@ -153,13 +153,13 @@ $fn = new custom_functions;
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
             <ul class="sidebar-menu">
-            <li class="treeview">
+            <!-- <li class="treeview">
                     <a href="home.php">
                         <i class="fa fa-home" class="active"></i> <span>Home</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="treeview">
-                    <a href="index.php">
+                    <a href="home.php">
                         <i class="fa fa-laptop"></i>
                         <span>Dashboard</span>
                     </a>

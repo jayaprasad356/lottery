@@ -74,7 +74,7 @@ if (isset($_POST['btnAdd'])) {
                        
                             <div class="box-footer">
                                 <button type="submit" name="btnAdd" class="btn btn-primary">Submit</button>
-                                <input type="reset" class="btn-warning btn" name="btnClear" value="Clear" />
+                                <!-- <input type="reset" class="btn-warning btn" name="btnClear" value="Clear" /> -->
                             </div>
                     
                 </form>
