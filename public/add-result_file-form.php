@@ -125,7 +125,7 @@ if (isset($_POST['btnAdd'])) {
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Draw Day</label><i class="text-danger asterik">*</i><?php echo isset($error['day']) ? $error['day'] : ''; ?>
-                                        <input type="text" class="form-control" name="day" id="drawday" required />
+                                        <input type="text" class="form-control" name="day" id="day" required />
                                     </div>
                                 </div>
                             </div>  
@@ -138,7 +138,7 @@ if (isset($_POST['btnAdd'])) {
                                     <div class="form-group packate_div">
                                         <label for="exampleInputEmail1">Draw Time</label><i class="text-danger asterik">*</i><?php echo isset($error['time']) ? $error['time'] : ''; ?>
                                         <select id='time' name="time[]" class='form-control'>
-                                            <option value="none">Select Timeslot</option>
+                                            <option value="">Select Timeslot</option>
                                                 <?php
                                                 $sql = "SELECT * FROM `times`";
                                                 $db->sql($sql);
@@ -153,7 +153,10 @@ if (isset($_POST['btnAdd'])) {
                                 <div class="col-md-2">
                                     <div class="form-group packate_div">
                                         <label for="exampleInputEmail1">Draw Name</label>
-                                        <input type="text" class="form-control" name="name[]" required />
+                                        <select id='name' name="name[]" class='form-control'>
+                                            <option value="">Select Draw Name</option>
+                                        </select> 
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -229,7 +232,9 @@ if (isset($_POST['btnAdd'])) {
                                                             $db->sql($sql);
                                                             $result = $db->getResult();
                                                             foreach ($result as $value) {
-                                                            ?><option value="<?= $value['time'] ?>"><?= $value['time'] ?></option><?php } ?></select></div></div>' +'<div class="col-md-2"><div class="form-group"><label for="name">Draw Name</label>' + '<input type="text" class="form-control" name="name[]"></div></div>'+'<div class="col-md-2"><div class="form-group"><label for="prize">First Prize</label>' + '<input type="text" class="form-control" name="prize[]"></div></div>'+'<div class="col-md-4"><div class="form-group"><label for="file">Upload Result Pdf</label>' + '<input type="file" class="form-control" name="result_file[]"></div></div>'+'<div class="col-md-1" style="display: grid;"><label>Remove</label><a class="remove text-danger" style="cursor: pointer;"><i class="fa fa-times fa-2x"></i></a></div>'+'</div>'); //add input box
+                                                            ?><option value="<?= $value['time'] ?>"><?= $value['time'] ?></option><?php } ?></select></div></div>' 
+                                                            +'<div class="col-md-2"><div class="form-group"><label for="name">Draw Name</label>' + 
+                                                            '<select id="name" name="name[]" class="form-control"><option value="">Select Draw Name</option></select></div></div>'+'<div class="col-md-2"><div class="form-group"><label for="prize">First Prize</label>' + '<input type="text" class="form-control" name="prize[]"></div></div>'+'<div class="col-md-4"><div class="form-group"><label for="file">Upload Result Pdf</label>' + '<input type="file" class="form-control" name="result_file[]"></div></div>'+'<div class="col-md-1" style="display: grid;"><label>Remove</label><a class="remove text-danger" style="cursor: pointer;"><i class="fa fa-times fa-2x"></i></a></div>'+'</div>'); //add input box
             } else {
                 alert('You Reached the limits')
             }
@@ -247,10 +252,22 @@ function dateFunction(val) {
     const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     const d = new Date(val);
     let day = weekday[d.getDay()];
-    document.getElementById("drawday").value = day;
+    document.getElementById("day").value = day;
 
 
 }
 
+</script>
+<script>
+    $(document).on('change', '#time', function() {
+        $.ajax({
+            url: "public/db-operation.php",
+            data: "day=" + $('#day').val() + "&time=" + $('#time').val() + "&drawtime=1",
+            method: "POST",
+            success: function(data) {
+                $('#name').html(data);
+            }
+        });
+    });
 </script>
 <?php $db->disconnect(); ?>
