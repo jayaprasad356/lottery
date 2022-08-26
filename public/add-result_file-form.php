@@ -133,11 +133,11 @@ if (isset($_POST['btnAdd'])) {
                         <br>
                 
                         <div id="packate_div" >
-                            <div class="row">
+                            <div id="row1" class="row">
                                 <div class="col-md-2">
                                     <div class="form-group packate_div">
                                         <label for="exampleInputEmail1">Draw Time</label><i class="text-danger asterik">*</i><?php echo isset($error['time']) ? $error['time'] : ''; ?>
-                                        <select id='time' name="time[]" class='form-control'>
+                                        <select id='time' name="time[]" class='form-control drawtime'>
                                             <option value="">Select Timeslot</option>
                                                 <?php
                                                 $sql = "SELECT * FROM `times`";
@@ -153,7 +153,7 @@ if (isset($_POST['btnAdd'])) {
                                 <div class="col-md-2">
                                     <div class="form-group packate_div">
                                         <label for="exampleInputEmail1">Draw Name</label>
-                                        <select id='name' name="name[]" class='form-control'>
+                                        <select id='name' name="name[]" class='form-control drawname'>
                                             <option value="">Select Draw Name</option>
                                         </select> 
                                         
@@ -162,7 +162,7 @@ if (isset($_POST['btnAdd'])) {
                                 <div class="col-md-2">
                                     <div class="form-group packate_div">
                                         <label for="exampleInputEmail1">First Prize</label><i class="text-danger asterik">*</i><?php echo isset($error['prize']) ? $error['prize'] : ''; ?>
-                                        <input type="text" class="form-control" name="prize[]" required />
+                                        <input type="text" class="form-control price" name="prize[]" required />
                                     </div>
                                 </div>
                                 <div class='col-md-4'>
@@ -225,16 +225,20 @@ if (isset($_POST['btnAdd'])) {
         var x = 1;
         $(add_button).click(function (e) {
             e.preventDefault();
+            var count = $('#packate_div >div').length;
+            var count_length = count + 1;
+            var parentid = $(this).parent().parent( ".row" ).attr( "id");
             if (x < max_fields) {
                 x++;
-                $(wrapper).append('<div class="row">'+'<div class="col-md-2"><div class="form-group"><label for="time">Draw Time</label>' + '<select id=time name="time[]" class="form-control"><option value="none">Select</option><?php
+                $(wrapper).append('<div id="row'+count_length+'" class="row">'+'<div class="col-md-2"><div class="form-group"><label for="time">Draw Time</label>' + '<select id="time" name="time[]" class="form-control drawtime"><option value="">Select</option><?php
                                                             $sql = "SELECT * FROM `times`";
                                                             $db->sql($sql);
                                                             $result = $db->getResult();
                                                             foreach ($result as $value) {
                                                             ?><option value="<?= $value['time'] ?>"><?= $value['time'] ?></option><?php } ?></select></div></div>' 
                                                             +'<div class="col-md-2"><div class="form-group"><label for="name">Draw Name</label>' + 
-                                                            '<select id="name" name="name[]" class="form-control"><option value="">Select Draw Name</option></select></div></div>'+'<div class="col-md-2"><div class="form-group"><label for="prize">First Prize</label>' + '<input type="text" class="form-control" name="prize[]"></div></div>'+'<div class="col-md-4"><div class="form-group"><label for="file">Upload Result Pdf</label>' + '<input type="file" class="form-control" name="result_file[]"></div></div>'+'<div class="col-md-1" style="display: grid;"><label>Remove</label><a class="remove text-danger" style="cursor: pointer;"><i class="fa fa-times fa-2x"></i></a></div>'+'</div>'); //add input box
+                                                            '<select id="name" name="name[]" class="form-control drawname"><option value="">Select Draw Name</option></select></div></div>'+'<div class="col-md-2"><div class="form-group"><label for="prize">First Prize</label>' + '<input type="text" class="form-control price" name="prize[]"></div></div>'+'<div class="col-md-4"><div class="form-group"><label for="file">Upload Result Pdf</label>' + '<input type="file" class="form-control" name="result_file[]"></div></div>'+'<div class="col-md-1" style="display: grid;"><label>Remove</label><a class="remove text-danger" style="cursor: pointer;"><i class="fa fa-times fa-2x"></i></a></div>'+'</div>');
+                
             } else {
                 alert('You Reached the limits')
             }
@@ -260,12 +264,13 @@ function dateFunction(val) {
 </script>
 <script>
     $(document).on('change', '#time', function() {
+        var parentid = $(this).parent().parent().parent( ".row" ).attr( "id");
         $.ajax({
             url: "public/db-operation.php",
             data: "day=" + $('#day').val() + "&time=" + $('#time').val() + "&drawtime=1",
             method: "POST",
             success: function(data) {
-                $('#name').html(data);
+                $("#"+parentid+ " .drawname").html(data);
             }
         });
     });
